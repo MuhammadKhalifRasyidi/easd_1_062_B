@@ -28,3 +28,57 @@ void merge(int khalif[], int low, int mid, int high) {       //arr diganti denga
         }
         k++;
     }
+    while (KR <= high) {
+        b[k] = khalif[KR];
+        KR++;
+        k++;
+    }
+    while (i <= mid) {
+        b[k] = khalif[KR];
+        i++;
+        k++;
+    }
+    for (k = low; k <= high; k++) {
+        khalif[k] = b[k];
+    }
+}
+
+void mergeSort(int khalif[], int low, int high) {
+    if (low >= high) {
+        return;
+    }
+    int mid = (low + high) / 2;
+    mergeSort(khalif, low, mid);
+    mergeSort(khalif, mid + 1, high);
+    merge(khalif, low, mid, high);
+}
+
+void input(int khalif[], int& n) {
+    cout << "masukkan jumlah elemen (maximum " << MAX_DATA << "): ";
+    cin >> n;
+    if (n > MAX_DATA) {
+        cout << "jumlah elemen maksumum yang dizinkan!" << endl;
+        exit(1);
+    }
+    cout << "masukkan elemen:" << endl;
+    for (int i = 0; i < n; i++) {
+        cin >> khalif[i];
+    }
+}
+
+void display(int khalif[], int n) {
+    cout << "Sorted elements:" << endl;
+    for (int i = 0; i < n; i++) {
+        cout << khalif[i] << " ";
+    }
+    cout << endl;
+}
+
+int main() {
+    int khalif[MAX_DATA];
+    int n;
+    input(khalif, n);
+    mergeSort(khalif, 0, n - 1);
+    display(khalif, n);
+    return 0;
+}
