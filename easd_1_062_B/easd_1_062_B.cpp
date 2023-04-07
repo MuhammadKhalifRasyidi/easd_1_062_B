@@ -12,7 +12,7 @@
 #include <iostream>
 using namespace std;
 
-const int MAX_DATA = 119; // 99 + 20 -2 x 15 + 10 + 20 ( nim 99)
+const int MAX_DATA = 82; // 62 + 20 -2 x 15 + 10 + 20 ( nim 62)
 
 void merge(int khalif[], int low, int mid, int high) {       //arr diganti dengan nama panggilan 
     int i = low, KR = mid + 1, k = low;                     //j diganti dengan inisial nama awal 
